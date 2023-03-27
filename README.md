@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Flask Form App
 
 This is a simple Flask application that collects user input via a form and stores the data in a Python list. The application also displays the stored data on the same page.
@@ -39,6 +40,4 @@ Contributions are welcome! Please create a pull request with your changes.
 
 If you find any issues or bugs, please report them on the [Issues](https://github.com/johndoe/flask-form-app/issues) page.
 
-## License
 
-This application is licensed under the [MIT License](https://opensource.org/licenses/MIT).
