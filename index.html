@@ -11,4 +11,11 @@
     <input type="email" name="email" id="email"><br><br>
     <button type="submit">Submit</button>
   </form>
+  {% if data_list %}
+    <h2>Form Data:</h2>
+    <ul>
+      {% for data_dict in data_list %}
+        <li>Name: {{ data_dict['name'] }} - Email: {{ data_dict['email'] }}</li>
+      {% endfor %}
+    </ul>
 {% endblock %}
