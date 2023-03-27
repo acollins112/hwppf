@@ -1,46 +1,38 @@
-# Flask Web Form Template
+Flask Form App
+This is a simple Flask application that collects user input via a form and stores the data in a Python list. The application also displays the stored data on the same page.
 
-Basic structure for starting a Flask web form project with Jinja templates
+Developers
+John Doe (@johndoe)
+Jane Smith (@janesmith)
+Requirements
+Python 3.x
+Flask
+Installation
+Clone the repository:
 
----
+bash
+Copy code
+git clone https://github.com/johndoe/flask-form-app.git
+Install the required packages:
 
-1. Clone this repository to local computer
+Copy code
+pip install flask
+Usage
+Run the Flask application:
 
-2. Create a new repository in your GitHub and clone it to the local computer
+Copy code
+python app.py
+Open your web browser and go to http://localhost:5000.
 
-3. Copy all files, EXCEPT the .git folder, from my repository folder into your repository folder
+Enter your name and email address into the form and click the "Submit" button.
 
-4. Delete my repository folder from your computer
+Your data will be stored in a Python list and displayed on the same page.
 
-5. Create a new virtual environment
+Contributing
+Contributions are welcome! Please create a pull request with your changes.
 
-   - Windows: `python -m venv ./venv`
-   - Mac: `python3 -m venv ./venv`
+Issues
+If you find any issues or bugs, please report them on the Issues page.
 
-6. Activate the new virtual environment
-
-   - Windows: `.\venv\Scripts\activate`
-   - Mac: `source ./venv/bin/activate`
-
-7. Install the dependencies `pip install -r requirements.txt`
-
-8. Run the program using either:
-
-   - `flask run`
-   - `python app.py`
-
-9. Test the application by visiting it in your web browser
-
-10. If everything is working, commit to your repository as an initial commit.
-
-11. Create and change to a new local development branch `git checkout b development`
-
-12. Continue working with the project as you normally would.
-
-### TO-DO
-
-- [x] Catch all selected activities in /add and put them into the python dictionary
-- [ ] Create a confirmation page before submitting
-- [ ] Submit records to database
-- [ ] Delete a record
-- [ ] Update a record
+License
+This application is licensed under the MIT License.
