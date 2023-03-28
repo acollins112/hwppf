@@ -1,33 +1,63 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for 
 
 app = Flask(__name__)
 
-# list to store form data
-data_list = []
+# Define a list to store the book information
+books_dict = [
+    {
+    
+    }
+]
 
-# homepage route
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', pageTitle="List of Books", books=books_dict)
 
-# add route
 @app.route('/add', methods=['POST'])
 def add():
-    # process form data
-    name = request.form['name']
-    email = request.form['email']
-    
-    # create dictionary and add to list
-    data_dict = {'name': name, 'email': email}
-    data_list.append(data_dict)
+    print("inside add function")
+    if request.method == "POST":
+        form = request.form
+    # Get the book information from the form
+    title = form['title']
+    author = form['author']
+    pages = form['page_count']
+    classification = form.getlist('classification')
+    acquisition = form['acquisition']
 
-    # return success message
-    return 'Data added successfully!'
+    details_string= ", ".join() 
+
+    add_book_dict = {
+        "title": title,
+        "author": author,
+        "pages": pages,
+        "classification": classification,
+        "details": details_string,
+        "acquisition": acquisition,
+    }
+
+    print(add_book_dict)
+    books_dict.append(
+        add_book_dict
+    )
+
+    # Add the book information to the list
+    books_dict.append({
+        'title': title,
+        'author': author,
+        'page_count': pages,
+        'classification': classification,
+        'acquisition': acquisition
+    })
+
+    # Render the table template with the book information
+    return render_template('index.html', books=books_dict)
+    
 
 # about route
-@app.route('/about')
+@app.route('/about', methods=["GET"])
 def about():
-    return render_template('about.html')
+    return render_template('about.html', pageTitle="About the Developers")
 
 if __name__ == '__main__':
     app.run(debug=True)

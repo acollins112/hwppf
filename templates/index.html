@@ -54,19 +54,19 @@
 
     <tbody>
       <tr>
-        <td>The Hobbit</td>
-        <td>J.R.R. Tolkien</td>
-        <td>295</td>
-        <td>Fiction</td>
-        <td>read,recommend</td>
-        <td>library</td>
+        <td>{{ book.title }}</td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.pages }}</td>
+        <td>{{ book.classification }}</td>
+        <td>{{ ', '.join(book.details) }}</td>
+        <td>{{ book.acquisition }}</td>
       </tr>
-        <td>test</td>
-        <td>test</td>
-        <td>23</td>
-        <td>non-fiction</td>
-        <td>own,read</td>
-        <td>purchased</td>
+        <td>{{ book.title }}</td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.pages }}</td>
+        <td>{{ book.classification }}</td>
+        <td>{{ ', '.join(book.details) }}</td>
+        <td>{{ book.acquisition }}</td>
     </tbody>
   </table>
 </main>
