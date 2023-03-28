@@ -51,7 +51,7 @@ def add():
     })
 
     # Render the table template with the book information
-    return render_template('index.html', books=books_dict)
+    return render_template('index.html')
     
 
 # about route
