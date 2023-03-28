@@ -1,21 +1,72 @@
-{% extends 'base.html' %} {% block body %}
-<h2>Digital Product Management - Web Form Template</h2>
-{% extends 'base.html' %}
+<h2>Add a book to my library </h2>
+<hr />
+<main>
+  <form action="/add" method="POST">
+    <p>
+      <label for="book-title">Title:</label>
+      <input type="text" id="book-title" name="book-title" /><br><br>
+      <label for="author-name">Author:</label>
+      <input type="text" id="author-name" name="author-name"/><br><br>
+      <label for="page-count">Pages:</label>
+      <input type="number" id="page-count" name="page-count" min="1"><br><br>
 
-{% block content %}
-  <h1>My Form</h1>
-  <form action="{{ url_for('add') }}" method="POST">
-    <label for="name">Name:</label>
-    <input type="text" name="name" id="name"><br><br>
-    <label for="email">Email:</label>
-    <input type="email" name="email" id="email"><br><br>
-    <button type="submit">Submit</button>
+      <label for="classification">Classification:</label>
+      <input type="radio" id="fiction" name="genre" value="fiction">
+      <label for="fiction">Fiction</label>
+      <input type="radio" id="non-fiction" name="genre" value="non-fiction">
+      <label for="non-fiction">Non-Fiction</label>
+    </p>
+    <fieldset>
+    <legend>Details:</legend><br>
+    <input type="checkbox" id="owned" name="status" value="owned">
+    <label for="owned">I own this book</label><br><br>
+    <input type="checkbox" id="read" name="status" value="read">
+    <label for="read">I've read this book</label><br><br>
+    <input type="checkbox" id="liked" name="status" value="liked">
+    <label for="liked">I liked this book</label><br><br>
+    <input type="checkbox" id="recommend" name="status" value="recommend">
+    <label for="recommend">I would recommend this book to others</label><br><br>
+    </fieldset><br><br>
+    <label for="book-source">How did you get this book?</label>
+    <select id="book-source" name="book-source">
+    <option value="option">-Select option-</option>
+    <option value="purchased">I purchased it.</option>
+    <option value="gift">It was a gift.</option>
+    <option value="library">I checked it out at the library.</option>
+    <option value="friend">A friend loaned it to me.</option>
+    </select><br><br>
+
+    <p><input type="submit" id="submit" value="Add Book" />
   </form>
-  {% if data_list %}
-    <h2>Form Data:</h2>
-    <ul>
-      {% for data_dict in data_list %}
-        <li>Name: {{ data_dict['name'] }} - Email: {{ data_dict['email'] }}</li>
-      {% endfor %}
-    </ul>
-{% endblock %}
+  <h3>List of books</h3>
+  <hr />
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Pages</th>
+        <th>Classification</th>
+        <th>Details</th>
+        <th>Acquisition</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>The Hobbit</td>
+        <td>J.R.R. Tolkien</td>
+        <td>295</td>
+        <td>Fiction</td>
+        <td>read,recommend</td>
+        <td>library</td>
+      </tr>
+        <td>test</td>
+        <td>test</td>
+        <td>23</td>
+        <td>non-fiction</td>
+        <td>own,read</td>
+        <td>purchased</td>
+    </tbody>
+  </table>
+</main>
