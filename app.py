@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, url_for, redirect
 app = Flask(__name__)
 
 # Define a list to store the book information
-books_dict = [
+book_dict = [
     {"title": "Test",
      "author": "John Doe",
      "pages": "222",
@@ -15,7 +15,7 @@ books_dict = [
 
 @app.route('/', methods=["GET", "POST"])
 def index():
-    return render_template('index.html', pageTitle="Add a book to my library", books= books_dict)
+    return render_template('index.html', pageTitle="Add a book to my library", book= book_dict)
 
 @app.route('/about', methods=["GET"])
 def about():
@@ -58,11 +58,11 @@ def add():
     }
 
     print(book_dict)
-    books_dict.append(
+    book_dict.append(
         book_dict
     )
 
-    print(books_dict)
+    print(book_dict)
     return redirect(url_for("index"))
 
 if __name__ == '__main__':
