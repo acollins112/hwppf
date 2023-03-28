@@ -19,7 +19,7 @@ def index():
 
 @app.route('/about', methods=["GET"])
 def about():
-    return render_template('about.html', pageTitle="About the Developers")
+    return render_template('about.html', pageTitle="About the Developers", static_folder="static")
 
 @app.route('/add', methods=['POST'])
 def add():
