@@ -1,47 +1,43 @@
-# Flask Web Form Template
+<<<<<<< HEAD
+# Flask Form App
 
-Basic structure for starting a Flask web form project with Jinja templates
+This is a simple Flask application that collects user input via a form and stores the data in a Python list. The application also displays the stored data on the same page.
 
----
+## Developers
 
-1. Clone this repository to local computer
+- Anthony Collins([@acollins112](https://github.com/acollins112))
+- Aaron Statler ([@aaronStats](https://github.com/aaronStats))
 
-2. Create a new repository in your GitHub and clone it to the local computer
+## Requirements
 
-3. Copy all files, EXCEPT the .git folder, from my repository folder into your repository folder
+- Python 3.x
+- Flask
 
-4. Delete my repository folder from your computer
+## Installation
 
-5. Create a new virtual environment
+1. Clone the repository:
+git clone https://github.com/acollins112/hwppf.git
 
-   - Windows: `python -m venv ./venv`
-   - Mac: `python3 -m venv ./venv`
+2. Install the required packages:
+pip install flask
 
-6. Activate the new virtual environment
+## Usage
 
-   - Windows: `.\venv\Scripts\activate`
-   - Mac: `source ./venv/bin/activate`
+1. Run the Flask application:
+python app.py
 
-7. Install the dependencies `pip install -r requirements.txt`
+2. Open your web browser and go to [http://localhost:5000](http://localhost:5000).
 
-8. Run the program using either:
+3. Enter your name and email address into the form and fill out the other personal information to help us Devs understand you more when done, click the "Submit" button. 
 
-   - `flask run`
-   - `python app.py`
+4. Your data will be stored in a Python list and displayed on the same page.
 
-9. Test the application by visiting it in your web browser
-   - '
+## Contributing
 
-10. If everything is working, commit to your repository as an initial commit.
+Contributions are welcome! Please create a pull request with your changes.
 
-11. Create and change to a new local development branch `git checkout b development`
+## Issues
 
-12. Continue working with the project as you normally would.
+If you find any issues or bugs, please report them on the [Issues](https://github.com/acollins112/issues) page.
 
-### TO-DO
 
-- [x] Catch all selected activities in /add and put them into the python dictionary
-- [ ] Create a confirmation page before submitting
-- [ ] Submit records to database
-- [ ] Delete a record
-- [ ] Update a record
