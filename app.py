@@ -17,9 +17,9 @@ book_dict = [
 def index():
     return render_template('index.html', pageTitle="Add a book to my library", book= book_dict)
 
-@app.route('/about', methods=["GET"])
+@app.route('/about', methods=["GET", 'POST'])
 def about():
-    return render_template('about.html', pageTitle="About the Developers", static_folder='/static')
+    return render_template('about.html')
 
 @app.route('/add', methods=['POST'])
 def add():

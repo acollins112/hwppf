@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static,filename='css/stylesheet.css') }}" rel="stylesheet">
     <title>About the Developers</title>
 </head>
 <body>
     <h1>About the Developers</h1>
-    <img src="{{ url_for('static', filename='static/pictures/astatler@uiowa.edu-2.jpg')  }}" width="400" alt="Aaron"> <br>
+    <img src="{{ url_for('static', filename='pictures/astatler@uiowa.edu-2.jpg')  }}" width="300" alt="Aaron" > <br>
     <p>Above is Aaron Statler.</p> <br>
-    <img src="{{ url_for('static', filename='static/pictures/linkedinpic.jpeg')  }}" alt="Anthony"> <br>
+    <img src="{{ url_for('static', filename='static/pictures/linkedinpic.jpeg')  }}" width='300' alt="Anthony"> <br>
     <p>Above is Anthony Collins.</p>
+
+    
 </body>
 </html>
