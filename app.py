@@ -11,7 +11,7 @@ books_dict = [
 
 @app.route('/')
 def index():
-    return render_template('index.html', pageTitle="List of Books", books=books_dict)
+    return render_template('index.html')
 
 @app.route('/add', methods=['POST'])
 def add():
