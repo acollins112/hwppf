@@ -1,4 +1,4 @@
-<h2>Add a book to my library </h2>
+<h2>Add a book to my library</h2>
 <hr />
 <main>
   <form action="/add" method="POST">
@@ -29,7 +29,7 @@
     </fieldset><br><br>
     <label for="book-source">How did you get this book?</label>
     <select id="book-source" name="book-source">
-    <option value="option">-Select option-</option>
+    <option value="" selected>-Select option-</option>
     <option value="purchased">I purchased it.</option>
     <option value="gift">It was a gift.</option>
     <option value="library">I checked it out at the library.</option>
@@ -58,15 +58,9 @@
         <td>{{ book.author }}</td>
         <td>{{ book.pages }}</td>
         <td>{{ book.classification }}</td>
-        <td>{{ ', '.join(book.details) }}</td>
+        <td>{{ book.details }}</td>
         <td>{{ book.acquisition }}</td>
       </tr>
-        <td>{{ book.title }}</td>
-        <td>{{ book.author }}</td>
-        <td>{{ book.pages }}</td>
-        <td>{{ book.classification }}</td>
-        <td>{{ ', '.join(book.details) }}</td>
-        <td>{{ book.acquisition }}</td>
     </tbody>
   </table>
 </main>

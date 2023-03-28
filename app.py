@@ -1,33 +1,54 @@
-from flask import Flask, render_template, request, url_for 
+from flask import Flask, render_template, request, url_for, redirect
 
 app = Flask(__name__)
 
 # Define a list to store the book information
 books_dict = [
-    {
-    
+    {"title": "Test",
+     "author": "John Doe",
+     "pages": "222",
+     "classification": "fiction",
+     "details": "test,test",
+     "acquisition": "library"
     }
 ]
 
-@app.route('/')
+@app.route('/', methods=["GET", "POST"])
 def index():
-    return render_template('index.html')
+    return render_template('index.html', pageTitle="Add a book to my library", books= books_dict)
+
+@app.route('/about', methods=["GET"])
+def about():
+    return render_template('about.html', pageTitle="About the Developers")
 
 @app.route('/add', methods=['POST'])
 def add():
     print("inside add function")
     if request.method == "POST":
+
+
         form = request.form
+
+
     # Get the book information from the form
     title = form['title']
     author = form['author']
-    pages = form['page_count']
-    classification = form.getlist('classification')
+    pages = form['pages']
+    classification = form['classification']
+    details = form.getlist('details')
     acquisition = form['acquisition']
 
-    details_string= ", ".join() 
+    print(title)
+    print(author)
+    print(pages)
+    print(classification)
+    print(details)
+    print(acquisition)
 
-    add_book_dict = {
+
+    details_string = ", ".join(details)
+
+    book_dict = {
         "title": title,
         "author": author,
         "pages": pages,
@@ -36,28 +57,13 @@ def add():
         "acquisition": acquisition,
     }
 
-    print(add_book_dict)
+    print(book_dict)
     books_dict.append(
-        add_book_dict
+        book_dict
     )
 
-    # Add the book information to the list
-    books_dict.append({
-        'title': title,
-        'author': author,
-        'page_count': pages,
-        'classification': classification,
-        'acquisition': acquisition
-    })
-
-    # Render the table template with the book information
-    return render_template('index.html')
-    
-
-# about route
-@app.route('/about', methods=["GET"])
-def about():
-    return render_template('about.html', pageTitle="About the Developers")
+    print(books_dict)
+    return redirect(url_for("index"))
 
 if __name__ == '__main__':
     app.run(debug=True)
