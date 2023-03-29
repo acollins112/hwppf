@@ -61,7 +61,7 @@ def add():
         print(book_dict)
         return redirect(url_for("index"))  
     else:
-        return redirect(url_for("index"))
+        return render_template('index.html', pageTitle="Add a book to the library", book=book_dict)
 
 if __name__ == '__main__':
     app.run(debug=True)
