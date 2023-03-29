@@ -22,10 +22,11 @@ def index():
 @app.route('/about', methods=["GET", 'POST'])
 def about():
     return render_template('about.html', pageTitle="About the Developers")
+
 @app.route('/add', methods=['POST'])
 def add():
     print("inside add function")
-    if request.method == "POST":
+    if request.method == 'POST':
 
 
         form = request.form
@@ -62,7 +63,6 @@ def add():
         book_dict.append(
             book_dict
         )
-
         print(book_dict)
         return redirect(url_for("index"))  
     else:
