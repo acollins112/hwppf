@@ -4,12 +4,12 @@ app = Flask(__name__)
 
 # Define a list to store the book information
 book_dict = [
-    {"title": "Test",
-     "author": "John Doe",
-     "pages": "222",
-     "classification": "fiction",
-     "details": "test,test",
-     "acquisition": "library"
+    {"Title": "Test",
+     "Author": "John Doe",
+     "Pages": "222",
+     "Classification": "fiction",
+     "Details": "test,test",
+     "Acquisition": "library"
     }
 ]
 
@@ -33,30 +33,30 @@ def add():
 
 
         # Get the book information from the form
-        title = form["title"]
-        author = form["author"]
-        pages = form["pages"]
-        classification = form["classification"]
-        details = form.getlist("details")
-        acquisition = form["acquisition"]
+        Title = form["Title"]
+        Author = form["Author"]
+        Pages = form["Pages"]
+        Classification = form["Classification"]
+        Details = form.getlist("Details")
+        Acquisition = form["Acquisition"]
 
-        print(title)
-        print(author)
-        print(pages)
-        print(classification)
-        print(details)
-        print(acquisition)
+        print(Title)
+        print(Author)
+        print(Pages)
+        print(Classification)
+        print(Details)
+        print(Acquisition)
 
 
-        details_string = ", ".join(details)
+        Details_string = ", ".join(Details)
 
         book_dict = {
-            "title": title,
-            "author": author,
-            "pages": pages,
-            "classification": classification,
-            "details": details_string,
-            "acquisition": acquisition,
+            "Title": Title,
+            "Author": Author,
+            "Pages": Pages,
+            "Classification": Classification,
+            "Details": Details_string,
+            "Acquisition": Acquisition,
     }
 
         print(book_dict)
