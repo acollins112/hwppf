@@ -7,14 +7,10 @@
     <title>About the Developers</title>
 </head> 
 <body> 
-    <body style="background-image: ('{{url_for('static', filename='/static/images/test.jpg')}}');">
-
     <h1>About the Developers</h1>
     <img src="{{ url_for('static', filename='images/astatler.jpg')  }}" width="300" alt="Aaron" /> <br>
     <p>Above is Aaron Statler.</p> <br>
     <img src="{{ url_for('static', filename='images/anthony.jpeg')  }}" width='300' alt="Anthony"/> <br>
     <p>Above is Anthony Collins.</p>
-
-    <img src="{% static '/static/images/test.jpg' %}" alt="test">
 </body>
 </html>
