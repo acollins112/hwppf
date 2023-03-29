@@ -33,12 +33,12 @@ def add():
 
 
         # Get the book information from the form
-        title = form['title']
-        author = form['author']
-        pages = form['pages']
-        classification = form['classification']
-        details = form.getlist('details')
-        acquisition = form['acquisition']
+        title = form["title"]
+        author = form["author"]
+        pages = form["pages"]
+        classification = form["classification"]
+        details = form.getlist("details")
+        acquisition = form["acquisition"]
 
         print(title)
         print(author)
