@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Flask Form App
 
 This is a simple Flask application that collects user input via a form and stores the data in a Python list. The application also displays the stored data on the same page.
