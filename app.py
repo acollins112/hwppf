@@ -31,40 +31,42 @@ def add():
         form = request.form
 
 
-    # Get the book information from the form
-    title = form['title']
-    author = form['author']
-    pages = form['pages']
-    classification = form['classification']
-    details = form.getlist('details')
-    acquisition = form['acquisition']
+        # Get the book information from the form
+        title = form['title']
+        author = form['author']
+        pages = form['pages']
+        classification = form['classification']
+        details = form.getlist('details')
+        acquisition = form['acquisition']
 
-    print(title)
-    print(author)
-    print(pages)
-    print(classification)
-    print(details)
-    print(acquisition)
+        print(title)
+        print(author)
+        print(pages)
+        print(classification)
+        print(details)
+        print(acquisition)
 
 
-    details_string = ", ".join(details)
+        details_string = ", ".join(details)
 
-    book_dict = {
-        "title": title,
-        "author": author,
-        "pages": pages,
-        "classification": classification,
-        "details": details_string,
-        "acquisition": acquisition,
+        book_dict = {
+            "title": title,
+            "author": author,
+            "pages": pages,
+            "classification": classification,
+            "details": details_string,
+            "acquisition": acquisition,
     }
 
-    print(book_dict)
-    book_dict.append(
-        book_dict
-    )
+        print(book_dict)
+        book_dict.append(
+            book_dict
+        )
 
-    print(book_dict)
-    return redirect(url_for("index"))
+        print(book_dict)
+        return redirect(url_for("index"))  
+    else:
+        return redirect(url_for("index"))
 
 if __name__ == '__main__':
     app.run(debug=True)
