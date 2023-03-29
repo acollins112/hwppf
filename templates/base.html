@@ -11,18 +11,17 @@
     rel="stylesheet"
     href="{{url_for('static', filename='css/stylesheet.css') }}"
     />
-
   <title>Home Page</title>
 </head>
-
-
 <body>
   <nav>
-      <a href="{{ url_for('index') }}">Home</a><br><br>
-      <a href="{{ url_for('about') }}">About</a><br><br>
+    <ul>
+      <li><a href="{{ url_for('index') }}">Home</a></li><br><br>
+      <li><a href="{{ url_for('about') }}">About</a></li><br><br>
+    </ul>
   </nav>
   <body>
-    <div class="container">{% block body %} xx {% endblock %}</div>
+    <div class="container">{% block content %}{% endblock %} </div>
   </body>
 </body>
 </html>
