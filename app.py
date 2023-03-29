@@ -27,18 +27,13 @@ def about():
 def add():
     print("Add book")
     if request.method == 'POST':
-
-
-        form = request.form
-
-
         # Get the book information from the form
-        Title = form["Title"]
-        Author = form["Author"]
-        Pages = form["Pages"]
-        Classification = form["Classification"]
-        Details = form.getlist("Details")
-        Acquisition = form["Acquisition"]
+        Title = request.form["Title"]
+        Author = request.form["Author"]
+        Pages = request.form["Pages"]
+        Classification = request.form["Classification"]
+        Details = request.form.getlist("Details")
+        Acquisition = request.form["Acquisition"]
 
         print(Title)
         print(Author)
