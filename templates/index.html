@@ -1,3 +1,8 @@
+{% block body %}
+<nav>
+<a href="{{ url_for('index') }}">Home</a>
+<a href="{{ url_for('about') }}">About</a>
+</nav>
 <h2>Add a book to my library</h2>
 <hr />
 <main>
@@ -68,3 +73,4 @@
   </table>
   {% endif %}
 </main>
+{% endblock %}
