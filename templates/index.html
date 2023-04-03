@@ -3,32 +3,32 @@
 <main>
   <form action="/add" method="POST">
     <p>
-      <label for="Title">Title:</label>
-      <input type="text" id="Title" name="Title" /><br><br>
-      <label for="Author">Author:</label>
-      <input type="text" id="Author" name="Author"/><br><br>
-      <label for="Pages">Pages:</label>
-      <input type="number" id="Pages" name="Pages" min="1"><br><br>
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" /><br><br>
+      <label for="author">Author:</label>
+      <input type="text" id="author" name="author"/><br><br>
+      <label for="pages">Pages:</label>
+      <input type="number" id="pages" name="pages" min="1"><br><br>
 
-      <label for="Classification">Classification:</label>
-      <input type="radio" id="Classification" name="genre" value="Classification">
-      <label for="Classification">Fiction</label>
-      <input type="radio" id="Classification" name="genre" value="Classification">
-      <label for="Classification">Non-Fiction</label>
+      <label for="classification">Classification:</label>
+      <input type="radio" id="classification_f" name="classification" value="fiction">
+      <label for="fiction">Fiction</label>
+      <input type="radio" id="classification_n" name="classification" value="non-fiction">
+      <label for="non-fiction">Non-Fiction</label>
     </p>
     <fieldset>
     <legend>Details:</legend><br>
-    <input type="checkbox" id="owned" name="status" value="owned">
+    <input type="checkbox" id="owned" name="details" value="owned">
     <label for="owned">I own this book</label><br><br>
-    <input type="checkbox" id="read" name="status" value="read">
+    <input type="checkbox" id="read" name="details" value="read">
     <label for="read">I've read this book</label><br><br>
-    <input type="checkbox" id="liked" name="status" value="liked">
+    <input type="checkbox" id="liked" name="details" value="liked">
     <label for="liked">I liked this book</label><br><br>
-    <input type="checkbox" id="recommend" name="status" value="recommend">
+    <input type="checkbox" id="recommend" name="details" value="recommend">
     <label for="recommend">I would recommend this book to others</label><br><br>
     </fieldset><br><br>
-    <label for="Acquisition">How did you get this book?</label>
-    <select id="Acquisition" name="Acquisition">
+    <label for="acquisition">How did you get this book?</label>
+    <select id="acquisition" name="acquisition">
     <option value="" selected>-Select option-</option>
     <option value="purchased">I purchased it.</option>
     <option value="gift">It was a gift.</option>
@@ -38,6 +38,7 @@
 
     <p><input type="submit" id="submit" value="Add Book" />
   </form>
+  {% if books %}
   <h3>List of books</h3>
   <hr />
   <table border="1">
@@ -53,14 +54,17 @@
     </thead>
 
     <tbody>
+      {% for book in books %}
       <tr>
-        <td>{{ book.Title }}</td>
-        <td>{{ book.Author }}</td>
-        <td>{{ book.Pages }}</td>
-        <td>{{ book.Classification }}</td>
-        <td>{{ book.Details }}</td>
-        <td>{{ book.Acquisition }}</td>
+        <td>{{ book.title }}</td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.pages }}</td>
+        <td>{{ book.classification }}</td>
+        <td>{{ book.details }}</td>
+        <td>{{ book.acquisition }}</td>
       </tr>
+      {% endfor %}
     </tbody>
   </table>
+  {% endif %}
 </main>

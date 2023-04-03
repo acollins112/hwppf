@@ -1,21 +1,21 @@
 from flask import Flask, flash, render_template, request, url_for, redirect
 
 app = Flask(__name__)
-
+app.config["SECRET_KEY"]="gfdfgfds"
 # Define a list to store the book information
 book_dict = [
-    {"Title": "Test",
-     "Author": "John Doe",
-     "Pages": "222",
-     "Classification": "fiction",
-     "Details": "test,test",
-     "Acquisition": "library"
+    {"title": "Test",
+     "author": "John Doe",
+     "pages": "222",
+     "classification": "fiction",
+     "details": "test,test",
+     "acquisition": "library"
     }
 ]
 
 @app.route('/', methods=["GET", "POST"])
 def index():
-    return render_template('index.html', pageTitle="Add a book to my library", book= book_dict)
+    return render_template('index.html', pageTitle="Add a book to my library", books = book_dict)
 
 @app.route('/about', methods=["GET", 'POST'])
 def about():
@@ -29,40 +29,40 @@ def add():
         form =request.form
 
         # Get the book information from the form
-        Title = form.get["Title"]
-        Author = form.get["Author"]
-        Pages = form.get["Pages"]
-        Classification = form.get["Classification"]
-        Details = form.getlist("Details")
-        Acquisition = form.get["Acquisition"]
+        title = form["title"]
+        author = form["author"]
+        pages = form["pages"]
+        classification = form["classification"]
+        details = form.getlist("details")
+        acquisition = form["acquisition"]
 
-        print(Title)
-        print(Author)
-        print(Pages)
-        print(Classification)
-        print(Details)
-        print(Acquisition)
+        print(title)
+        print(author)
+        print(pages)
+        print(classification)
+        print(details)
+        print(acquisition)
 
 
-        Details_string = ", ".join(Details)
+        details_string = ", ".join(details)
 
-        book_dict = {
-            "Title": Title,
-            "Author": Author,
-            "Pages": Pages,
-            "Classification": Classification,
-            "Details": Details_string,
-            "Acquisition": Acquisition,
+        add_book_dict = {
+            "title": title,
+            "author": author,
+            "pages": pages,
+            "classification": classification,
+            "details": details_string,
+            "acquisition": acquisition,
     }
 
-        print(book_dict)
+        print(add_book_dict)
         book_dict.append(
-            book_dict
+            add_book_dict
         )
         print(book_dict)
 
         flash(
-            "The book ;" + Title + " has been added to the database.",
+            "The book ;" + title + " has been added to the database.",
             "success",
         )
         return redirect(url_for("index"))  
