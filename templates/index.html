@@ -1,21 +1,72 @@
+{% extends 'base.html' %} {% block  %}
 <h2>Add a book to my library</h2>
 <hr />
 <main>
   <form action="/add" method="POST">
-    <p>
-      <label for="Title">Title:</label>
-      <input type="text" id="Title" name="Title" /><br><br>
-      <label for="Author">Author:</label>
-      <input type="text" id="Author" name="Author"/><br><br>
-      <label for="Pages">Pages:</label>
-      <input type="number" id="Pages" name="Pages" min="1"><br><br>
+    <div class="mb-3">
+      <label class="form-label" for="Title">Title:</label>
+      <input
+        class="form-control" 
+        type="text" 
+        id="Title" 
+        name="Title"
+        autofocus="autofocus"
+        required 
+      />
+    </div>
 
-      <label for="Classification">Classification:</label>
-      <input type="radio" id="Classification" name="genre" value="Classification">
-      <label for="Classification">Fiction</label>
-      <input type="radio" id="Classification" name="genre" value="Classification">
-      <label for="Classification">Non-Fiction</label>
-    </p>
+    <fieldset>
+      <legend>Author:</legend>
+      <label class="form-label" for="Author">
+      <input 
+        type="text" 
+        id="Author" 
+        name="Author"
+        autofocus="autofocus"
+        required
+      />
+    </fieldset>
+
+    <fieldset>
+      <legend>Pages:</legend>
+      <label class="form-lable" for="Pages">
+      <input 
+        type="number" 
+        id="Pages" 
+        name="Pages" 
+        min="1"
+        autofocus="autofocus"
+        required
+      />
+    </fieldset>
+
+
+    <fieldset>
+      <legend>Classification:</legend>
+      <div class="mb-3 form-check form-check-inline">
+      <label class="form-check-label" for="Classification">
+      <input 
+        type="radio" 
+        id="Classification" 
+        name="genre" 
+        value="Classification"
+        required="required"
+      />
+      Fiction
+      </div>
+      
+      <div class="mb-3 form-check form-check-inline">
+      <label class="form-check-label" for="Classification">
+      <input 
+        type="radio" 
+        id="Classification" 
+        name="genre" 
+        value="Classification"
+        required
+      />
+      Non-Fiction
+      </div>
+
     <fieldset>
     <legend>Details:</legend><br>
     <input type="checkbox" id="owned" name="status" value="owned">
@@ -36,9 +87,20 @@
     <option value="friend">A friend loaned it to me.</option>
     </select><br><br>
 
-    <p><input type="submit" id="submit" value="Add Book" />
+    <p>
+    <div class ="mt-3">
+      <input
+      class="btn btn-primary"
+      type="submit" 
+      id="submit" 
+      value="Add Book" 
+      />
+    </div>
+  
   </form>
-  <h3>List of books</h3>
+
+  {% if book %}
+  <h3 class="mt-5">List of books</h3>
   <hr />
   <table border="1">
     <thead>
@@ -53,14 +115,18 @@
     </thead>
 
     <tbody>
+      {% for book in books %}
       <tr>
-        <td>{{ Title }}</td>
-        <td>{{ Author }}</td>
-        <td>{{ Pages }}</td>
-        <td>{{ Classification }}</td>
-        <td>{{ Details }}</td>
-        <td>{{ Acquisition }}</td>
+        <td>{{ books.Title }}</td>
+        <td>{{ books.Author }}</td>
+        <td>{{ books.Pages }}</td>
+        <td>{{ books.Classification }}</td>
+        <td>{{ books.Details }}</td>
+        <td>{{ books.Acquisition }}</td>
       </tr>
+      {% endfor %}
     </tbody>
   </table>
+  {% endif %}
 </main>
+{% endblock  %}

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for, redirect
+from flask import Flask, flash, render_template, request, url_for, redirect
 
 app = Flask(__name__)
 
@@ -14,8 +14,6 @@ book_dict = [
 ]
 
 @app.route('/', methods=["GET", "POST"])
-# homepage route
-@app.route('/')
 def index():
     return render_template('index.html', pageTitle="Add a book to my library", book= book_dict)
 
@@ -27,13 +25,16 @@ def about():
 def add():
     print("Add book")
     if request.method == 'POST':
+            
+        form =request.form
+
         # Get the book information from the form
-        Title = request.form["Title"]
-        Author = request.form["Author"]
-        Pages = request.form["Pages"]
-        Classification = request.form["Classification"]
-        Details = request.form.getlist("Details")
-        Acquisition = request.form["Acquisition"]
+        Title = form["Title"]
+        Author = form["Author"]
+        Pages = form["Pages"]
+        Classification = form["Classification"]
+        Details = form.getlist("Details")
+        Acquisition = form["Acquisition"]
 
         print(Title)
         print(Author)
@@ -59,9 +60,14 @@ def add():
             book_dict
         )
         print(book_dict)
+
+        flash(
+            "The book ;" + Title + " has been added to the database.",
+            "success",
+        )
         return redirect(url_for("index"))  
     else:
-        return render_template('index.html', pageTitle="Add a book to the library", book=book_dict)
+        return redirect(url_for("index"))
 
 if __name__ == '__main__':
     app.run(debug=True)
