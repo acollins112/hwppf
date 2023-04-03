@@ -7,7 +7,7 @@ book_dict = [
     {"title": "Test",
      "author": "John Doe",
      "pages": "222",
-     "classification": "fiction",
+     "classification": "Fiction",
      "details": "test,test",
      "acquisition": "library"
     }
