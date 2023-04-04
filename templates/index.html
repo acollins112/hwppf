@@ -1,50 +1,51 @@
 {% block body %}
-<nav>
-<a href="{{ url_for('index') }}">Home</a>
-<a href="{{ url_for('about') }}">About</a>
-</nav>
+<nav><a href="/">Home</a> | <a href="/about">About</a></nav>
 <h2>Add a book to my library</h2>
 <hr />
 <main>
   <form action="/add" method="POST">
+    <div class="mb-3">
     <p>
       <label for="title">Title:</label>
-      <input type="text" id="title" name="title" /><br><br>
+      <input type="text" id="title" name="title" autofocus="autofocus" required /><br><br>
       <label for="author">Author:</label>
-      <input type="text" id="author" name="author"/><br><br>
+      <input type="text" id="author" name="author" autofocus="autofocus" required/><br><br>
       <label for="pages">Pages:</label>
-      <input type="number" id="pages" name="pages" min="1"><br><br>
+      <input type="number" id="pages" name="pages" min="1" autofoucs="autofocus" required><br><br>
 
       <label for="classification">Classification:</label>
-      <input type="radio" id="classification_f" name="classification" value="fiction">
+      <input type="radio" id="classification_f" name="classification" value="fiction" required>
       <label for="fiction">Fiction</label>
       <input type="radio" id="classification_n" name="classification" value="non-fiction">
       <label for="non-fiction">Non-Fiction</label>
     </p>
+    </div>
     <fieldset>
     <legend>Details:</legend><br>
-    <input type="checkbox" id="owned" name="details" value="owned">
+    <input class="mb-3 form-select" type="checkbox" id="owned" name="details" value="owned">
     <label for="owned">I own this book</label><br><br>
-    <input type="checkbox" id="read" name="details" value="read">
+    <input class="mb-3 form-select" type="checkbox" id="read" name="details" value="read">
     <label for="read">I've read this book</label><br><br>
-    <input type="checkbox" id="liked" name="details" value="liked">
+    <input class="mb-3 form-select" type="checkbox" id="liked" name="details" value="liked">
     <label for="liked">I liked this book</label><br><br>
-    <input type="checkbox" id="recommend" name="details" value="recommend">
+    <input class="mb-3 form-select" type="checkbox" id="recommend" name="details" value="recommend">
     <label for="recommend">I would recommend this book to others</label><br><br>
     </fieldset><br><br>
-    <label for="acquisition">How did you get this book?</label>
-    <select id="acquisition" name="acquisition">
+    <div class="mb-3 form-check form-check-inline">
+    <label class="form-check-label" for="acquisition">How did you get this book?</label>
+    <select id="acquisition" name="acquisition" required>
     <option value="" selected>-Select option-</option>
     <option value="purchased">I purchased it.</option>
     <option value="gift">It was a gift.</option>
     <option value="library">I checked it out at the library.</option>
     <option value="friend">A friend loaned it to me.</option>
     </select><br><br>
+    </div>
 
-    <p><input type="submit" id="submit" value="Add Book" />
+    <p><input class="btn btn-primary" type="submit" id="submit" value="Add Book" />
   </form>
   {% if books %}
-  <h3>List of books</h3>
+  <h3 class="mt-5">List of books</h3>
   <hr />
   <table border="1">
     <thead>
