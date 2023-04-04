@@ -27,9 +27,9 @@ python app.py
 
 2. Open your web browser and go to [http://localhost:5000](http://localhost:5000).
 
-3. Enter your name and email address into the form and fill out the other personal information to help us Devs understand you more when done, click the "Submit" button. 
+3. Please enter the title of the book you would like to add to the library as well as the author and the pages you like. Then please specify if the book if fiction or non fiction. Then we ask if you are able to tell us wether you own the book, read the book, liked the book, and would reccommend this book to others. Once finnished click add book at the bottom of the screen. 
 
-4. Your data will be stored in a Python list and displayed on the same page.
+4. Your information and data will be stored at the bottom of the web page. 
 
 ## Contributing
 
